@@ -6,7 +6,7 @@
   "plugins": ["youtube"],
   "pluginsConfig": {
     "search": {
-      "maxIndexSize": 100000
+      "maxIndexSize": 10000
     }
   }
 }
