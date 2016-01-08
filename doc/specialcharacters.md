@@ -102,7 +102,7 @@ Unicodeシーケンスは文字に関するリテラル内にBMP領域の16bit�
 波ダッシュと全角チルダの問題については、次のページを読んでください。  
 <a href="https://ja.wikipedia.org/wiki/Unicode#.E6.B3.A2.E3.83.80.E3.83.83.E3.82.B7.E3.83.A5.E3.83.BB.E5.85.A8.E8.A7.92.E3.83.81.E3.83.AB.E3.83.80.E5.95.8F.E9.A1.8C" target="_blank">波ダッシュ・全角チルダ問題</a>
 <h3>3.3　OS依存文字</h3>
-<img src="https://github.com/ynupc/scalastringcourse/blob/master/image/day2/string_course.019.jpeg" width="500px">
+<img src="../image/string_course.019.jpeg" width="500px">
 <br>
 OSに依存する改行文字、パスの区切り文字、クラスパスの区切り文字は次のように取得できます。ただし、Windowsはキャリッジリターン"\r"なしでも改行を行うことや、パスの区切り文字がUnix環境の"\\"と"/"の両方が混在しても許容されるため、それらについてはUnix側に合わせれば良いという考え方もあります。
 ```scala
