@@ -6,7 +6,7 @@
   "plugins": ["youtube", "bootstrapjs"],
   "pluginsConfig": {
     "search": {
-      "maxIndexSize": 100
+      "maxIndexSize": 1000000
     },
     "bootstrapjs": {
       modal: true,
