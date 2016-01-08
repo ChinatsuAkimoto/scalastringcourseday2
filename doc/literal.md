@@ -18,25 +18,15 @@ static変数はJava 7までは非ヒープ領域であるPermanent領域に保�
 <p>オンメモリでのアルゴリズムによる改善が難しい場合、一部をHDDやSSDのようなストレージに載せる方法を考えます。その際、ストレージのFile IOが遅いことが問題になるかもしれません。その場合は、読み込むファイルの読み込む位置を先頭からではなく途中から読み込む<a href="http://docs.oracle.com/javase/jp/8/api/java/io/RandomAccessFile.html" target="_blank">RandomAccessFile</a>を使用することや何度も読み込むデータを<a href="http://docs.oracle.com/javase/jp/8/api/java/util/WeakHashMap.html" target="_blank">WeakHashMap</a>でキャッシュしたりといった対策が考えられます。</p>
 <h4>（２）物理的に割り当てる容量を変更する</h4>
 <p>JVM始動時にJVMオプションによって確保するメモリの各領域の容量を変更することができます。</p>
-<table border="1">
-<thead>
-<caption>JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション</caption>
-<tr>
-<th>&nbsp;</th><th>スタック領域</th><th>ヒープ領域</th><th>ヒープ領域内のNew領域<br>（のOld領域に対する比率）</th><th>New領域内のEden領域<br>（のSurvivor領域に対する比率）</th><th>Metaspace領域</th><th>Permanent領域</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>容量</th><td>-Xss</td><td>-Xms</td><td>-Xmn<br>-XX:NewSize=</td><td>&nbsp;</td><td>-XX:MetaspaceSize=</td><td>-XX:PermSize=</td>
-</tr>
-<tr>
-<th>最大容量</th><td>-Xss</td><td>-Xmx</td><td>-Xmn<br>-XX:MaxNewSize=</td><td>&nbsp;</td><td>-XX:MaxMetaspaceSize=</td><td>-XX:MaxPermSize=</td>
-</tr>
-<tr>
-<th>比率</th><td>&nbsp;</td><td>&nbsp;</td><td>-XX:NewRatio=</td><td>-XX:SurvivorRatio=</td><td>&nbsp;</td><td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
+
+JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション
+
+&nbsp;|スタック領域|ヒープ領域|ヒープ領域内のNew領域<br>（のOld領域に対する比率）|New領域内のEden領域<br>（のSurvivor領域に対する比率）|Metaspace領域|Permanent領域
+---|---|---|---|---|---|---
+容量|-Xss|-Xms|-Xmn<br>-XX:NewSize=|&nbsp;|-XX:MetaspaceSize=|-XX:PermSize=
+最大容量|-Xss|-Xmx|-Xmn<br>-XX:MaxNewSize=|&nbsp;|-XX:MaxMetaspaceSize=|-XX:MaxPermSize=
+比率|&nbsp;|&nbsp;|-XX:NewRatio=|-XX:SurvivorRatio=|&nbsp;|&nbsp;
+
 <p>もし、メモリの容量が不足して領域に新たに容量を割り当てられない場合は、<a href="https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E8%A8%98%E6%86%B6" target="_blank">仮想記憶</a>で見かけ上の主記憶の容量を増やす方法があります。もしくは、多少お金を払っても構わない人は、<a href="https://aws.amazon.com/jp/" target="_blank">Amazon AWS</a>や<a href="https://www.heroku.com/" target="_blank">Heroku</a>、<a href="https://azure.microsoft.com/" target="_blank">Windows Azure</a>、<a href="https://cloud.google.com/compute/" target="_blank">Google Compute Engine</a>、<a href="http://www.ibm.com/cloud-computing/jp/ja/softlayer.html" target="_blank">IBM SoftLayer</a>、<a href="http://cloud.sakura.ad.jp/" target="_blank">さくらのクラウド</a>、<a href="https://www.conoha.jp/" target="_blank">Conoha VPS</a>、<a href="http://vps.sakura.ad.jp/" target="_blank">さくらのVPS</a>などIaaSの導入を検討してみてはいかがでしょうか。計算機自体を変える場合でも、単純に使用する計算機１台のスペックを向上させるスケールアップと分散化して処理するスケールアウトのどちらで対応するかの選択肢があります。</p>
 ***
 <h3>1.1　文字に関するリテラル</h3>
