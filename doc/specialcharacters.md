@@ -110,7 +110,7 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
   def testOSDependentCharacter(): Unit = {
     //改行
     //Windows: \r\n
-    //UNIX:      \n
+    //Unix:      \n
     val newLine1 = System.getProperty("line.separator")
     val newLine2 = System.lineSeparator()
     val newLine3 = String.format("%n")
@@ -121,7 +121,7 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
 
     //ディレクトリやファイルのパスの区切り
     //Windows: \\
-    //UNIX:     /
+    //Unix:     /
     val fileSeparator1 = System.getProperty("file.separator")
     val fileSeparator2 = File.separator
 
@@ -129,7 +129,7 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
 
     //PATHやCLASSPATHの区切り
     //Windows: ;
-    //UNIX:    :
+    //Unix:    :
     val pathSeparator1 = System.getProperty("path.separator")
     val pathSeparator2 = File.pathSeparator
 
