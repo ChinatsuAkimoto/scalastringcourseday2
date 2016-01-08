@@ -6,9 +6,9 @@
   "plugins": ["-search", "youtube", "bootstrapjs"],
   "pluginsConfig": {
     "bootstrapjs": {
-      modal: true,
-      dropdown: true,
-      popover: { selector: "[data-toggle=popover]" }
+      modal: true//,
+      //dropdown: true,
+      //popover: { selector: "[data-toggle=popover]" }
     },
     "search": {
       "maxIndexSize": 100000
