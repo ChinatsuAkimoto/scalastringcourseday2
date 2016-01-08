@@ -3,11 +3,8 @@
   "description": "",
   "language": "ja",
   "gitbook": "2.x.x",
-  "plugins": ["youtube", "bootstrapjs"],
+  "plugins": ["-search", "youtube", "bootstrapjs"],
   "pluginsConfig": {
-    "search": {
-      "maxIndexSize": 1000000
-    },
     "bootstrapjs": {
       modal: true,
       dropdown: true,
