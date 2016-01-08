@@ -6,7 +6,7 @@
 <a href="https://github.com/ynupc/scalastringcourseday2" target="_blank">https://github.com/ynupc/scalastringcourseday2</a>  
 
 <h2>クイズ</h2>
-<a href="http://ynupc.github.io/quiz/scalastringcourse/day2/">http://ynupc.github.io/quiz/scalastringcourse/day2/</a>  
+<a href="http://ynupc.github.io/quiz/scalastringcourse/day2/" target="_blank">http://ynupc.github.io/quiz/scalastringcourse/day2/</a>  
 
 <h2>目次</h2>
 <strong><a href="doc/literal.md#1リテラル">1.　リテラル</a></strong>  
