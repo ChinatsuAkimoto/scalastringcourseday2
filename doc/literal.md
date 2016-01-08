@@ -21,8 +21,8 @@ static変数はJava 7までは非ヒープ領域であるPermanent領域に保�
 
 JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション
 
-&nbsp;|スタック領域|ヒープ領域|ヒープ領域内のNew領域<br>（のOld領域に対する比率）|New領域内のEden領域<br>（のSurvivor領域に対する比率）|Metaspace領域|Permanent領域
----|---|---|---|---|---|---
+&nbsp;|スタック領域|ヒープ領域|ヒープ領域内のNew領域<br>（のOld領域に対する比率）|New領域内のEden領域<br>（のSurvivor領域に対する比率）
+---|---|---|---|---
 容量|-Xss|-Xms|-Xmn<br>-XX:NewSize=|&nbsp;
 最大容量|-Xss|-Xmx|-Xmn<br>-XX:MaxNewSize=|&nbsp;
 比率|&nbsp;|&nbsp;|-XX:NewRatio=|-XX:SurvivorRatio=
