@@ -9,7 +9,9 @@
       "maxIndexSize": 1000
     },
     "bootstrapjs": {
-      "collapse": true
+      modal: true,
+      dropdown: true,
+      popover: { selector: "[data-toggle=popover]" }
     }
   }
 }
