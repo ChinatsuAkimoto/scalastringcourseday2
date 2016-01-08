@@ -5,41 +5,7 @@
 リテラルとは、プログラム中に値を直接記述する表現、あるいはその値そのもののことです。Javaでは、プリミティブ型とオブジェクト型、値型と参照型という言い方もありますが、int, float, booleanのようなプリミティブ型をプログラム中に記述する際に、`int i = 0;`のように代入する値0をリテラルで書きます。主にプリミティブ型をリテラルで表記しますが、ダブルクォーテーションで囲われた文字列やnullのような特殊なオブジェクト型もリテラルが存在します。Scalaは全ての型がオブジェクト型でありプリミティブ型は存在しませんが、Javaに存在するリテラルはScalaでも同様に存在します。プリミティブ型はスタック領域に保持され、オブジェクト型、は参照はスタック領域に、インスタンスはヒープ領域に保持されます。Stringクラスの<a href="http://docs.oracle.com/javase/jp/8/api/java/lang/String.html#intern--" target="_blank">internメソッド</a>を使用した場合のインスタンスは、Java 6まではPermanent領域に保持され、Java 7からはヒープ領域に保持されるようになりました。なお、本コースではStringクラスのinternメソッドもそれに類するScalaの<a href="http://www.scala-lang.org/api/current/index.html#scala.Symbol" target="_blank">Symbolクラス</a>やSymbolリテラルについても取り上げません。（Symbolやinternは文字列処理というよりはマップのキーの管理の文脈で登場する技術です。）
 <h3>コラム：非ヒープ領域によるOutOfMemoryError</h3>
 static変数はJava 7までは非ヒープ領域であるPermanent領域に保持されますが、Java 8からPermanent領域が廃止され、static変数はヒープ領域に保持されるようになりました。Permanent領域の他の機能は非ヒープ領域であるMetaspace領域が引き継ぎました。OutOfMemoryErrorをはいてシステムが停止した場合、ヒープ領域とPermanent領域のどちらがいっぱいになったのか調べるなんてことを経験したことがあるかもしれませんが、容量の上限値の初期値が小さいPermanent領域が廃止され、容量の上限値の初期値が64bitプロセッサが取り扱えるメモリの上限値に設定されているMetaspace領域に移行したことで非ヒープ領域からのOutOfMemoryErrorの可能性をあまり意識しなくて済むようになりました。
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script>
-$('.collapse').collapse()
-</script>
+
 <h3>コラム：OutOfMemoryErrorやStackOverflowErrorの対処法</h3>
 <p><a href="http://docs.oracle.com/javase/jp/8/api/java/lang/OutOfMemoryError.html" target="_blank">OutOfMemoryError</a>や<a href="http://docs.oracle.com/javase/jp/8/api/java/lang/StackOverflowError.html" target="_blank">StackOverflowError</a>を回避するには、大まかには（１）プログラムで使用するメモリ容量を減らすか、（２）物理的に割り当てる容量を変更するかの２つあります。</p>
 <h4>（１）プログラム上で使用するメモリ容量を減らす</h4>
