@@ -36,7 +36,7 @@ Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Ba
 <h3>3.2　Unicodeシーケンス</h3>
 <img src="../image/string_course.018.jpeg" width="500px">
 <br>
-Unicodeシーケンスは文字に関するリテラル内にBMP領域の16bitのCode Pointによって文字を記述する方法です。例では、漢字なのか記号なのか作成するアプリケーションの目的によって変わりそうな文字をUnicodeシーケンスで表現してみました。最後の𠮷野家の<a href="https://ja.wiktionary.org/wiki/%F0%A0%AE%B7" target="_blank">「𠮷」</a>はBMP領域にはなく追加領域の文字なのでSurrogate Pair、つまり２つもUnicodeシーケンスで表現します。このような追加領域の文字は文字列リテラルや生文字リテラルでは表現できるが、文字リテラルでは表現できません。
+Unicodeシーケンスは文字に関するリテラル内にBMP領域の16bitのコードポイントによって文字を記述する方法です。例では、漢字なのか記号なのか作成するアプリケーションの目的によって変わりそうな文字をUnicodeシーケンスで表現してみました。最後の𠮷野家の<a href="https://ja.wiktionary.org/wiki/%F0%A0%AE%B7" target="_blank">「𠮷」</a>はBMP領域にはなく追加領域の文字なのでサロゲートペア、つまり２つもUnicodeシーケンスで表現します。このような追加領域の文字は文字列リテラルや生文字リテラルでは表現できるが、文字リテラルでは表現できません。
 ```scala
   @Test
   def testUnicodeSequence(): Unit = {
