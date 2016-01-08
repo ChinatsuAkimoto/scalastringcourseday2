@@ -9,6 +9,9 @@
       modal: true,
       dropdown: true,
       popover: { selector: "[data-toggle=popover]" }
+    },
+    "search": {
+      "maxIndexSize": 100000
     }
   }
 }
