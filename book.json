@@ -3,10 +3,13 @@
   "description": "",
   "language": "ja",
   "gitbook": "2.x.x",
-  "plugins": ["youtube"],
+  "plugins": ["youtube", "bootstrapjs"],
   "pluginsConfig": {
     "search": {
       "maxIndexSize": 10000
+    },
+    "bootstrapjs": {
+      collapse: true
     }
   }
 }
