@@ -3,13 +3,8 @@
   "description": "",
   "language": "ja",
   "gitbook": "2.x.x",
-  "plugins": ["-search", "youtube", "bootstrapjs"],
+  "plugins": ["youtube"],
   "pluginsConfig": {
-    "bootstrapjs": {
-      modal: true//,
-      //dropdown: true,
-      //popover: { selector: "[data-toggle=popover]" }
-    },
     "search": {
       "maxIndexSize": 100000
     }
