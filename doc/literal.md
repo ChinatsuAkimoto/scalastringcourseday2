@@ -161,7 +161,7 @@ Javaでは、==演算子（!=演算子）はプリミティブ型の一致（不
 Javaでは、String型はequalsメソッドを用いなければ内容の一致を見ることができませんが、char型はプリミティブ型なので==演算子で一致を見ることができます。さらに、char型は整数型（16bit）なので、他の整数型（byte型は8bit、short型は16bit、int型は32bit、long型は64bit）や浮動小数（float型は32bit、double型は64bit）と==演算子（!=演算子）で値の一致や比較を見ることができます。ScalaでもChar型は整数型なので同様に数値としての一致・比較が可能です。
 ***
 <h3>1.4　生文字リテラルの改行のインデントを揃える方法</h3>
-<img src="https://github.com/ynupc/scalastringcourse/blob/master/image/day2/string_course.007.jpeg" width="500px">
+<img src="../image/string_course.007.jpeg" width="500px">
 <br>
 改行文字を生文字リテラルで扱うとプログラムのインデントが崩れてしまい可読性が低下する問題が発生します。<a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@stripMargin:String" target="_blank">stripMarginメソッド</a>を使用すると改行文字を含む生文字リテラルのインデントを揃えることができます。
 ```scala
