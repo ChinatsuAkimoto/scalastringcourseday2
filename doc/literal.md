@@ -19,18 +19,22 @@ static変数はJava 7までは非ヒープ領域であるPermanent領域に保�
 <h4>（２）物理的に割り当てる容量を変更する</h4>
 <p>JVM始動時にJVMオプションによって確保するメモリの各領域の容量を変更することができます。</p>
 
-JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション
+JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション（１）
 
 &nbsp;|スタック領域|ヒープ領域
 ---|---|---
 容量|-Xss|-Xms
 最大容量|-Xss|-Xmx
 
+JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション（２）
+
 &nbsp;|ヒープ領域内のNew領域<br>（のOld領域に対する比率）|New領域内のEden領域<br>（のSurvivor領域に対する比率）
 ---|---|---
 容量|-Xmn<br>-XX:NewSize=|&nbsp;
 最大容量|-Xmn<br>-XX:MaxNewSize=|&nbsp;
 比率|-XX:NewRatio=|-XX:SurvivorRatio=
+
+JVMが始動時に確保するメモリの各領域の容量を変更するJVMオプション（３）
 
 &nbsp;|Metaspace領域|Permanent領域
 ---|---|---
