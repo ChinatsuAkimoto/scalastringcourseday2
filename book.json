@@ -6,7 +6,7 @@
   "plugins": ["youtube", "bootstrapjs"],
   "pluginsConfig": {
     "search": {
-      "maxIndexSize": 10000
+      "maxIndexSize": 1000
     },
     "bootstrapjs": {
       "collapse": true
