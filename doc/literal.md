@@ -34,23 +34,12 @@ static変数はJava 7までは非ヒープ領域であるPermanent領域に保�
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+$('.collapse').collapse()
+</script>
 <h3>コラム：OutOfMemoryErrorやStackOverflowErrorの対処法</h3>
 <p><a href="http://docs.oracle.com/javase/jp/8/api/java/lang/OutOfMemoryError.html" target="_blank">OutOfMemoryError</a>や<a href="http://docs.oracle.com/javase/jp/8/api/java/lang/StackOverflowError.html" target="_blank">StackOverflowError</a>を回避するには、大まかには（１）プログラムで使用するメモリ容量を減らすか、（２）物理的に割り当てる容量を変更するかの２つあります。</p>
 <h4>（１）プログラム上で使用するメモリ容量を減らす</h4>
