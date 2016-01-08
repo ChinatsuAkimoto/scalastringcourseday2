@@ -1,5 +1,5 @@
 <h1>Day 2 リテラル・補間子・特殊な文字</h1>
-<img src="../image/string_course.001.jpeg" width="500px">
+<img src="../image/string_course.001.jpeg" width="500px"/>
 <p>今日は、リテラル・補間子・特殊な文字についてScalaの文字列処理について紹介したいと思います。ご質問や間違いなどのご指摘は下記のコメント欄にお書きください。</p>
 
 <strong><a href="doc/literal.md#1リテラル">1.　リテラル</a></strong>  
