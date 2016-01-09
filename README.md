@@ -2,7 +2,7 @@
 <img src="image/string_course.001.jpeg" width="500px"/>
 今日は、リテラル・補間子・特殊な文字についてScalaの文字列処理について紹介したいと思います。  
 
-<h2>リポジトリ</h2>
+<h2>リポジトリ（サンプルコード）</h2>
 <a href="https://github.com/ynupc/scalastringcourseday2" target="_blank">https://github.com/ynupc/scalastringcourseday2</a>  
 
 <h2>クイズ</h2>
