@@ -3,6 +3,7 @@
 <img src="../image/string_course.002.jpeg" width="500px">
 <br>
 リテラルとは、プログラム中に値を直接記述する表現、あるいはその値そのもののことです。Javaでは、プリミティブ型と参照型、値型と参照型という言い方もありますが、int, float, booleanのようなプリミティブ型をプログラム中に記述する際に、`int i = 0;`のように代入する値0をリテラルで書きます。主にプリミティブ型をリテラルで表記しますが、ダブルクォーテーションで囲われた文字列やnullのような特殊な参照型もリテラルが存在します。Scalaは全ての型が参照型でありプリミティブ型は存在しませんが、Javaに存在するリテラルはScalaでも同様に存在します。プリミティブ型はスタック領域に保持され、参照型、は参照はスタック領域に、インスタンスはヒープ領域に保持されます。Stringクラスの<a href="http://docs.oracle.com/javase/jp/8/api/java/lang/String.html#intern--" target="_blank">internメソッド</a>を使用した場合のインスタンスは、Java 6まではPermanent領域に保持され、Java 7からはヒープ領域に保持されるようになりました。なお、本書ではStringクラスのinternメソッドもそれに類するScalaの<a href="http://www.scala-lang.org/api/current/index.html#scala.Symbol" target="_blank">Symbolクラス</a>やSymbolリテラルについても取り上げません。（一般的に、Symbolやinternは文字列処理というよりはマップのキーの管理の文脈で登場する技術です。）  
+<br>
 非ヒープ領域（Permanent領域やMetaspace領域）によるOutOfMemoryErrorについては<a href="#コラム非ヒープ領域によるoutofmemoryerror">コラム：非ヒープ領域によるOutOfMemoryError</a>、OutOfMemoryErrorやStackOverflowErrorの対処法については
 <a href="#コラムoutofmemoryerrorやstackoverflowerrorの対処法">コラム：OutOfMemoryErrorやStackOverflowErrorの対処法</a>を参照ください。
 ***
@@ -21,7 +22,8 @@ Javaのchar型はUnicodeの発案に基づいて16bitに設計されましたが
 <img src="../image/string_course.005.jpeg" width="500px">
 <br>
 JavaとScalaの文字に関連するリテラルの対照表です。表が示すように基本的にはリテラルの表記方法はJavaとScalaに違いはありません。しかし、Javaには存在しないがScalaには存在する生文字リテラルがあります。  
-Scalaのvalとvarの使い分けは<a href="コラムscalaのvalとvarの使い分け">コラム：Scalaのvalとvarの使い分け</a>、日本語の半角円記号とバックスラッシュ記号の混合問題については<a href="コラム日本語の半角円記号とバックスラッシュ記号の混同問題">コラム：日本語の半角円記号とバックスラッシュ記号の混同問題</a>を参照ください。
+<br>
+Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い分け">コラム：Scalaのvalとvarの使い分け</a>、日本語の半角円記号とバックスラッシュ記号の混合問題については<a href="#コラム日本語の半角円記号とバックスラッシュ記号の混同問題">コラム：日本語の半角円記号とバックスラッシュ記号の混同問題</a>を参照ください。
 ```scala
   @Test
   def testLiteral(): Unit = {
