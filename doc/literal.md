@@ -80,7 +80,7 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
 <h3>1.4　生文字リテラルの改行のインデントを揃える方法</h3>
 <img src="../image/string_course.007.jpeg" width="500px">
 <br>
-改行文字を生文字リテラルで扱うとプログラムのインデントが崩れてしまい可読性が低下する問題が発生します。<a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@stripMargin:String" target="_blank">stripMarginメソッド</a>を使用すると改行文字を含む生文字リテラルのインデントを揃えることができます。
+改行文字を生文字リテラルで扱うとプログラムのインデントが崩れてしまい可読性が低下する問題が発生します。<a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@stripMargin:String" target="_blank">stripMargin</a>メソッドを使用すると改行文字を含む生文字リテラルのインデントを揃えることができます。
 ```scala
   @Test
   def testStripMargin(): Unit = {
