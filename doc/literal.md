@@ -97,6 +97,7 @@ Scalaのvalとvarの使い分けは<a href="">コラム：Scalaのvalとvarの�
     assert(s == s2)
   }
 ```
+***
 <h3>コラム：非ヒープ領域によるOutOfMemoryError</h3>
 static変数はJava 7までは非ヒープ領域であるPermanent領域に保持されますが、Java 8からPermanent領域が廃止され、static変数はヒープ領域に保持されるようになりました。Permanent領域の他の機能は非ヒープ領域であるMetaspace領域が引き継ぎました。OutOfMemoryErrorをはいてシステムが停止した場合、ヒープ領域とPermanent領域のどちらがいっぱいになったのか調べるなんてことを経験したことがあるかもしれませんが、容量の上限値の初期値が小さいPermanent領域が廃止され、容量の上限値の初期値が64bitプロセッサが取り扱えるメモリの上限値に設定されているMetaspace領域に移行したことで非ヒープ領域からのOutOfMemoryErrorの可能性をあまり意識しなくて済むようになりました。
 
@@ -136,7 +137,7 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 最大容量|-XX:MaxMetaspaceSize=|-XX:MaxPermSize=
 
 もし、メモリの容量が不足して領域に新たに容量を割り当てられない場合は、<a href="https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E8%A8%98%E6%86%B6" target="_blank">仮想記憶</a>で見かけ上の主記憶の容量を増やす方法があります。もしくは、多少お金を払っても構わない人は、<a href="https://aws.amazon.com/jp/" target="_blank">Amazon AWS</a>や<a href="https://www.heroku.com/" target="_blank">Heroku</a>、<a href="https://azure.microsoft.com/" target="_blank">Windows Azure</a>、<a href="https://cloud.google.com/compute/" target="_blank">Google Compute Engine</a>、<a href="http://www.ibm.com/cloud-computing/jp/ja/softlayer.html" target="_blank">IBM SoftLayer</a>、<a href="http://cloud.sakura.ad.jp/" target="_blank">さくらのクラウド</a>、<a href="https://www.conoha.jp/" target="_blank">Conoha VPS</a>、<a href="http://vps.sakura.ad.jp/" target="_blank">さくらのVPS</a>などIaaSの導入を検討してみてはいかがでしょうか。計算機自体を変える場合でも、単純に使用する計算機１台のスペックを向上させるスケールアップと分散化して処理するスケールアウトのどちらで対応するかの選択肢があります。<br>
-
+***
 <h3>コラム：なぜ１文字が１つのchar型で表せなくなったのか、文字コードの歴史</h3>
 なぜ１文字が１つのchar型で表せなくなったのか、文字コードの歴史を簡単に振り返ってみましょう。
 <br>
@@ -180,11 +181,15 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 ２０００年、<a href="https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%83%BB%E3%83%90%E3%83%96%E3%83%AB" target="_blank">ITバブル</a>崩壊、ITバブル崩壊や<a href="https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%96%E3%83%97%E3%83%A9%E3%82%A4%E3%83%A0%E3%83%AD%E3%83%BC%E3%83%B3" target="_blank">サブプライム住宅ローン問題</a>などが０８年に<a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%83%9E%E3%83%B3%E3%83%BB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF" target="_blank">リーマン・ショック</a>を引き起こす原因となり、<a href="https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%96%E3%83%97%E3%83%A9%E3%82%A4%E3%83%A0%E4%BD%8F%E5%AE%85%E3%83%AD%E3%83%BC%E3%83%B3%E5%8D%B1%E6%A9%9F" target="_blank">サブプライム住宅ローン危機</a>、世界的な金融緩和競争を呼び、１１年に<a href="https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB%E8%A1%97%E3%82%92%E5%8D%A0%E6%8B%A0%E3%81%9B%E3%82%88" target="_blank">「ウォール街を占拠せよ」</a>の原因の一つになりました（「ウォール街を占拠せよ」で取り上げられたアメリカの中流層の雇用悪化はアメリカから中国への工場移転など他の理由も考えられます）。  
 ２００１年、<a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E5%90%8C%E6%99%82%E5%A4%9A%E7%99%BA%E3%83%86%E3%83%AD%E4%BA%8B%E4%BB%B6" target="_blank">アメリカ同時多発テロ発生</a>。  
 ***２００３年、Scala言語が公開されました。***  
+***
 <h3>コラム：Scalaのvalとvarの使い分け</h3>
 Javaの変数は参照を変えられますが、この表の例のようにScalaで`val`を使用すると参照を変えることができません。もしJavaと同じように参照を変えたい場合は、`val`から`var`に変更してください。
+***
 <h3>コラム：日本語の半角円記号とバックスラッシュ記号の混同問題</h3>
 Shift JISやEUC-JPの一部は<a href="https://ja.wikipedia.org/wiki/JIS_X_0201" target="_blank">JIS X 0201</a>であり、<a href="https://ja.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a>のバックスラッシュ記号である0x5CのCode Pointに、JIS X 0201では日本語の半角円記号が登録されています。このため見た目が半角円記号であってもバックスラッシュ記号のCode Point 0x5Cを表していることがあります。スライドでは半角円記号で表示しましたが、0x5Cの意味で半角円記号を表記しました。
+***
 <h3>コラム：文字列の一致</h3>
 Javaでは、==演算子（!=演算子）はプリミティブ型の一致（不一致）は見られてもString型や<a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AA%E3%83%9F%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%83%83%E3%83%91%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9" target="_blank">プリミティブラッパークラス</a>のような参照型に対してはスタック領域上にある参照の一致を見てしまい内容の一致を見ることはできないため、仮に内容が一致していてもfalseを返す可能性があります。そのため、参照型ではequalsメソッドにより内容の一致を見なければなりません。これはあまり直感的ではなくしばしばバグを生む原因になります。一方で、Scalaではプリミティブ型は存在せず、全てが参照型であり、全ての参照型に対して==演算子（!=演算子）とequalsメソッド（!演算子を伴うequalsメソッド）で内容の一致を見ることができます。Javaのように参照の一致を見たい場合は、eqメソッド（neメソッド）が使用できます。
+***
 <h3>コラム：文字の一致</h3>
 Javaでは、String型はequalsメソッドを用いなければ内容の一致を見ることができませんが、char型はプリミティブ型なので==演算子で一致を見ることができます。さらに、char型は整数型（16bit）なので、他の整数型（byte型は8bit、short型は16bit、int型は32bit、long型は64bit）や浮動小数（float型は32bit、double型は64bit）と==演算子（!=演算子）で値の一致や比較を見ることができます。ScalaでもChar型は整数型なので同様に数値としての一致・比較が可能です。
