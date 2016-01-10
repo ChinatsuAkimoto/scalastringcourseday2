@@ -2,7 +2,7 @@
 <img src="../image/string_course.008.jpeg" width="500px">
 <br>
 文字列リテラルや生文字リテラルに、それらリテラルような直感的な書き方で処理を加える方法として補間子があります。標準で用意されているのは、s補間子、f補間子、raw補間子の３種類です。それぞれ、s, f, rawを文字列リテラルや生文字リテラルの直前に書くことで補間子として機能します。補間子は<a href="http://www.scala-lang.org/api/current/index.html#scala.StringContext" target="_blank">StringContextクラス</a>を使用することで自作することが可能です。
-<br>
+***
 <h3>2.1　s補間子</h3>
 <img src="../image/string_course.009.jpeg" width="500px">
 <br>
@@ -16,7 +16,7 @@
     assert(result == "生命、宇宙、そして万物についての究極の疑問の答えは、42")
   }
 ```
-
+***
 <h3>2.2　f補間子</h3>
 <img src="../image/string_course.010.jpeg" width="500px">
 <br>
@@ -29,7 +29,7 @@
     assert(result == "サイボーグ009VSデビルマン")
   }
 ```
-
+***
 <h3>2.3　raw補間子</h3>
 <img src="../image/string_course.011.jpeg" width="500px">
 <br>
@@ -55,7 +55,7 @@ raw補間子ですが、raw補間子は生文字リテラルと同じように�
     assert(waveDashStringLiteral == waveDashRawLiteral)
   }
 ```
-
+***
 <h3>2.4　文字列リテラル＋raw補間子と生文字リテラルの違い</h3>
 <img src="../image/string_course.012.jpeg" width="500px">
 <br>
@@ -72,7 +72,7 @@ raw補間子ですが、raw補間子は生文字リテラルと同じように�
     val doubleQuotationRawStringLiteral: String = """ダブルクォーテーション「"」"""
   }
 ```
-
+***
 <h3>2.5　補間子の自作</h3>
 <img src="../image/string_course.013.jpeg" width="500px">
 <br>
