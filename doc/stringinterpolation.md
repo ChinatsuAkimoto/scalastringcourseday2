@@ -1,7 +1,7 @@
 # 2.　補間子
 <img src="../image/string_course.008.jpeg" width="500px">
 <br>
-文字列リテラルや生文字リテラルに、それらリテラルような直感的な書き方で処理を加える方法として補間子があります。標準で用意されているのは、s補間子、f補間子、raw補間子の３種類です。それぞれ、s, f, rawを文字列リテラルや生文字リテラルの直前に書くことで補間子として機能します。補間子は<a href="http://www.scala-lang.org/api/current/index.html#scala.StringContext" target="_blank">StringContextクラス</a>を使用することで自作することが可能です。
+文字列リテラルや生文字リテラルに、それらリテラルような直感的な書き方で処理を加える方法として補間子があります。標準で用意されているのは、s補間子、f補間子、raw補間子の３種類です。それぞれ、s, f, rawを文字列リテラルや生文字リテラルの直前に書くことで補間子として機能します。補間子は<a href="http://www.scala-lang.org/api/current/index.html#scala.StringContext" target="_blank">StringContext</a>クラスを使用することで自作することが可能です。
 ***
 <h3>2.1　s補間子</h3>
 <img src="../image/string_course.009.jpeg" width="500px">
