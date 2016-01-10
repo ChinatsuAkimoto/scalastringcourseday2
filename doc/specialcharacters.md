@@ -3,7 +3,8 @@ Scalaで特殊な扱いをする文字について、エスケープシーケン
 <h3>3.1　エスケープシーケンス</h3>
 <img src="../image/string_course.017.jpeg" width="500px">
 <br>
-Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Back space"、fは"form Feed"、nは"New line"、rは"carriage Return"、tは"horizontal Tab"（ASCIIなどにはvertical tabも存在します。<a href="https://ja.wikipedia.org/wiki/ASCII#ASCII.E5.88.B6.E5.BE.A1.E6.96.87.E5.AD.97" target="_blank">ASCII制御文字</a>）の略字です。タイプライターの時代から"back space"や"carriage return"、"new line (タイプライターではline feed)"、"horizontal tab (タイプライターではtab)"が存在します。"carriage return"はタイプライターからの名残で、コンピュータでは既に役目を終えているが、Microsoft社がWindowsに残しました。  
+Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Back space"、fは"form Feed"、nは"New line"、rは"carriage Return"、tは"horizontal Tab"（ASCIIなどにはvertical tabも存在します。<a href="https://ja.wikipedia.org/wiki/ASCII#ASCII.E5.88.B6.E5.BE.A1.E6.96.87.E5.AD.97" target="_blank">ASCII制御文字</a>）の略字です。タイプライターの時代から"back space"や"carriage return"、"new line (タイプライターではline feed)"、"horizontal tab (タイプライターではtab)"が存在します。"carriage return"はタイプライターからの名残で、コンピュータでは既に役目を終えていますが、Microsoft社がWindowsに残しました。  
+<br>
 表にあるように８進数のエスケープシーケンスは存在しますが、似た物として８進数のInt型のリテラルはScala 2.10からdeprecated (<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/Deprecated.html" target="_blank">Java 8のDeprecated</a>と<a href="http://www.scala-lang.org/api/current/index.html#scala.deprecated" target="_blank">Scalaのdeprecated</a>でdeprecatedの意味は同じですが、Java 8の方が比較的細かくdeprecatedの説明が書かれています)になりました。Ref. 
 <a href="https://github.com/scala/scala-dist/pull/20" target="_blank">Removed Octal literals</a>
 ```scala
