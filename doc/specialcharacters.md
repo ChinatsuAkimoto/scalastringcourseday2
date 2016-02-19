@@ -136,6 +136,8 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
   }
 ```
 ***
+<h3>コラム：Unicodeシーケンスの特殊な挙動、native2ascii</h3>
+
 <h3>コラム：<a href="https://ja.wikipedia.org/wiki/%E5%B9%BD%E9%9C%8A%E6%96%87%E5%AD%97" target="_blank">幽霊文字</a></h3>
 文字コードには含まれているが、一体どこで使われているのかわからない、この世には存在しない文字のことを幽霊文字と言います。代表的なものに<a href="https://ja.wiktionary.org/wiki/%E5%A6%9B" target="_blank">「妛」</a>や<a href="https://ja.wiktionary.org/wiki/%E5%BD%81" target="_blank">「彁」</a>があります。紙に書かれた大量の文字の電子化がいかに大変な作業であったかを考えれば、このようにいくつか<a href="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%A8%E3%83%A9%E3%83%BC" target="_blank">ヒューマンエラー</a>が起こるのは仕方ないことかもしれません。
 ***
