@@ -3,7 +3,7 @@ Scalaで特殊な扱いをする文字について、エスケープシーケン
 <h3>3.1　エスケープシーケンス</h3>
 <img src="../image/string_course.017.jpeg" width="500px">
 <br>
-Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Back space"、fは"form Feed"、nは"New line"、rは"carriage Return"、tは"horizontal Tab"（ASCIIなどにはvertical tabも存在します。<a href="https://ja.wikipedia.org/wiki/ASCII#ASCII.E5.88.B6.E5.BE.A1.E6.96.87.E5.AD.97" target="_blank">ASCII制御文字</a>）の略字です。タイプライターの時代から"back space"や"carriage return"、"new line (タイプライターではline feed)"、"horizontal tab (タイプライターではtab)"が存在します。"carriage return"はタイプライターからの名残で、コンピュータでは既に役目を終えていますが、Microsoft社がWindowsに残しました。  
+Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Back space"、fは"form Feed"、nは"New line"、rは"carriage Return"、tは"horizontal Tab"（ASCIIコードなどにはvertical tabも存在します。<a href="https://ja.wikipedia.org/wiki/ASCII#ASCII.E5.88.B6.E5.BE.A1.E6.96.87.E5.AD.97" target="_blank">ASCII制御文字</a>）の略字です。タイプライターの時代から"back space"や"carriage return"、"new line (タイプライターではline feed)"、"horizontal tab (タイプライターではtab)"が存在します。"carriage return"はタイプライターからの名残で、コンピュータでは既に役目を終えていますが、Microsoft社がWindowsに残しました。  
 <br>
 表にあるように８進数のエスケープシーケンスは存在しますが、似た物として８進数のInt型のリテラルはScala 2.10からdeprecated (<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/Deprecated.html" target="_blank">Java 8のDeprecated</a>と<a href="http://www.scala-lang.org/api/current/index.html#scala.deprecated" target="_blank">Scalaのdeprecated</a>でdeprecatedの意味は同じですが、Java 8の方が比較的細かくdeprecatedの説明が書かれています)になりました。Ref. 
 <a href="https://github.com/scala/scala-dist/pull/20" target="_blank">Removed Octal literals</a>
@@ -138,7 +138,13 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
 ```
 ***
 <h3>コラム：Unicodeシーケンスの特殊な挙動、native2ascii</h3>
+プログラムのコンパイルの初期の字句解析の段階で、ソースコード中の文字を一度全てASCIIコード（Unicodeの最初の128文字のみ、U+0000〜U+007F）に変換します。日本語文字のようなASCIIコードではない文字をUnicodeシーケンスの書式でASCIIコードに変換されます。そのため、Unicodeシーケンスは文字リテラルや文字列リテラルだけではなく、日本語文字で記述可能な変数名や関数名、クラス名などあらゆるところでUnicodeシーケンスも使用できます。幾つかのエスケープシーケンス（「```\r```」、「```\n```」、「```\'```」、「```\"```」）は、文字・文字列リテラル内でUnicodeシーケンスで記述することができません。例えば、「```\n```」を表すUnicodeシーケンス「```\u000A```」を文字列リテラル内に記述すると、実質的に文字列リテラル内で改行している状態になります。
 
+<h4>native2ascii</h4>
+変換に使用されるのがnative2asciiで、これはコマンドラインからも使用できます。
+
+
+***
 <h3>コラム：<a href="https://ja.wikipedia.org/wiki/%E5%B9%BD%E9%9C%8A%E6%96%87%E5%AD%97" target="_blank">幽霊文字</a></h3>
 文字コードには含まれているが、一体どこで使われているのかわからない、この世には存在しない文字のことを幽霊文字と言います。代表的なものに<a href="https://ja.wiktionary.org/wiki/%E5%A6%9B" target="_blank">「妛」</a>や<a href="https://ja.wiktionary.org/wiki/%E5%BD%81" target="_blank">「彁」</a>があります。紙に書かれた大量の文字の電子化がいかに大変な作業であったかを考えれば、このようにいくつか<a href="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%A8%E3%83%A9%E3%83%BC" target="_blank">ヒューマンエラー</a>が起こるのは仕方ないことかもしれません。
 ***
