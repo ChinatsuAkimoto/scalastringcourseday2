@@ -145,8 +145,8 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
 
 変換|コマンドの例
 ---|---
-通常の文字 to Unicodeシーケンス|```native2ascii -reverse -encoding UTF-8 [inputfile] ([outputfile])```
-Unicodeシーケンス to 通常の文字|```native2ascii -encoding UTF-8 [inputfile] ([outputfile])```
+通常の文字 to Unicodeシーケンス|```native2ascii -encoding UTF-8 [inputfile] ([outputfile])```
+Unicodeシーケンス to 通常の文字|```native2ascii -reverse -encoding UTF-8 [inputfile] ([outputfile])```
 
 ***
 <h3>コラム：<a href="https://ja.wikipedia.org/wiki/%E5%B9%BD%E9%9C%8A%E6%96%87%E5%AD%97" target="_blank">幽霊文字</a></h3>
