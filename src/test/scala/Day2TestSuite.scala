@@ -38,7 +38,10 @@ class Day2TestSuite extends AssertionsForJUnit {
 
   @Test
   def testRawStringLiteral(): Unit = {
+//  もしUnix上で実行する場合は次
     val sStringLiteral: String = "AB\\C\nあいう"
+//  もしWindows上で実行する場合は次
+//  val sStringLiteral: String = "AB\\C\r\nあいう"
 
     val sRawStringLiteral: String = """AB\C
 あいう"""
