@@ -1,5 +1,3 @@
-package day2
-
 import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
 
@@ -38,10 +36,14 @@ class Day2TestSuite extends AssertionsForJUnit {
 
   @Test
   def testRawStringLiteral(): Unit = {
-//  もしUnix上で実行する場合は次
-    val sStringLiteral: String = "AB\\C\nあいう"
-//  もしWindows上で実行する場合は次
-//  val sStringLiteral: String = "AB\\C\r\nあいう"
+    val sStringLiteral: String =
+      if (System.getProperty("os.name").toLowerCase.startsWith("windows")) {
+        //もしWindows上で実行する場合は次
+        "AB\\C\r\nあいう"
+      } else {
+        //もしUnix上で実行する場合は次
+        "AB\\C\nあいう"
+      }
 
     val sRawStringLiteral: String = """AB\C
 あいう"""
