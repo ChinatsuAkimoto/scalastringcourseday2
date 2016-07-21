@@ -62,7 +62,14 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
 ```scala
   @Test
   def testRawStringLiteral(): Unit = {
-    val sStringLiteral: String = "AB\\C\nあいう"
+    val sStringLiteral: String =
+      if (System.getProperty("os.name").toLowerCase.startsWith("windows")) {
+        //もしWindows上で実行する場合は次
+        "AB\\C\r\nあいう"
+      } else {
+        //もしUnix上で実行する場合は次
+        "AB\\C\nあいう"
+      }
 
     val sRawStringLiteral: String = """AB\C
 あいう"""
