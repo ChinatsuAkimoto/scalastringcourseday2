@@ -38,15 +38,15 @@
   </question>
   <!--Day2-3-->
   <question
-      statement="Unicodeの文字領域は何bitですか。"
-      feedback_for_correct_answer="Unicodeの文字領域は21bitです。BMP領域は16bitです。"
-      feedback_for_incorrect_answer="Unicodeの文字領域は21bitです。">
+      statement="Scalaには存在するがJavaには存在しないリテラルを選べ。"
+      feedback_for_correct_answer="生文字リテラル（&quot;&quot;&quot; &quot;&quot;&quot;）はJavaには存在しません。"
+      feedback_for_incorrect_answer="生文字リテラル（&quot;&quot;&quot; &quot;&quot;&quot;）はJavaには存在しません。">
       type="ma">
     <choices>
-      <choice answer="true">21bit</choice>
-      <choice feedback="BMP領域は16bitですが追加領域を含めると21bitです。16bit=65536文字の容量では中国・台湾の漢字を扱うのは無理です。">16bit</choice>
-      <choice feedback="一般的にUnicodeのCode Pointは32bitのIntで扱われますが、Unicodeの文字領域は21bitです。">32bit</choice>
-      <choice feedback="C/C++のcharは8bitですが、Unicodeの文字領域は21bitです。8bit=256文字の容量しかないので世界中の文字を扱うのは到底無理です。">8bit</choice>
+      <choice answer="true">生文字リテラル</choice>
+      <choice feedback="Javaにも文字列リテラル（&quot; &quot;）は存在します。">文字列リテラル</choice>
+      <choice feedback="Javaにも文字リテラル（&#39; &#39;）は存在します。">文字リテラル</choice>
+      <choice feedback="Javaにも空リテラル（null）は存在します。">空リテラル</choice>
     </choices>
   </question>
   <!--Day2-4-->
@@ -66,32 +66,29 @@
   </question>
   <!--Day2-5-->
   <question
-      statement="Stringの文字コードはどれですか。"
-      feedback_for_correct_answer="Stringの文字コードはUTF-16BEです。Charは16bitでStringがChar配列のラッパークラスです。JVMは文字列をBig Endianで扱います。"
-      feedback_for_incorrect_answer="Stringの文字コードはUTF-16BEです。">
+      statement="次のうち正しい文を選べ。"
+      feedback_for_correct_answer="StringContextクラスを用いて補間子を自作することができます。"
+      feedback_for_incorrect_answer="StringContextクラスを用いて補間子を自作することができます。">
       type="ma">
     <choices>
-      <choice answer="true">UTF-16BE</choice>
-      <choice feedback="JVMは文字列をBig Endianで扱います。">UTF-16LE</choice>
-      <choice feedback="一般的にUTF-8のような可変長な符号化はメモリ上で操作する文字列には用いず、ストレージに記憶させるときに使われます。">UTF-8</choice>
-      <choice feedback="Charは16bitでStringはChar配列のラッパークラスです。JVMは文字列をBig Endianで扱います。">UTF-32LE</choice>
-      <choice feedback="Charは16bitでStringはChar配列のラッパークラスです。">UTF-32BE</choice>
-      <choice feedback="StringやCharが用いる文字集合はUnicodeです。">windows-31j</choice>
+      <choice answer="true">s補間子、f補間子、raw補間子のような補間子を自作することが可能である。</choice>
+      <choice feedback="Unicodeシーケンスは生文字リテラル内でも使用可能です。">生文字リテラル内は、エスケープ文字がエスケープできないためUnicodeシーケンスは書けない。</choice>
+      <choice feedback="生文字リテラル内では改行できますが、文字列リテラル＋raw補間子の文字列リテラル内では改行ができません。">文字列リテラル＋raw補間子は、生文字リテラルと同じ表記が可能である。</choice>
+      <choice feedback="改行を含む生文字リテラルのプログラム上でのインデントを揃えたい場合はstripMarginメソッドを使用してください。">生文字リテラル内で改行した場合は新しい行の先頭の空白文字列が削除されるためプログラム上のインデントが揃えられる。</choice>
     </choices>
   </question>
   <!--Day2-6-->
   <question
-      statement="UnicodeのCode Pointの文字コードはどれですか。"
-      feedback_for_correct_answer="Code Pointの文字コードはUTF-32BEで、一般的に32bitのIntで扱いますが、Code Pointそのものの容量は21bitです。"
-      feedback_for_incorrect_answer="Code Pointの文字コードはUTF-32BEです。">
+      statement="次のうち存在しないエスケープシーケンスを選べ。"
+      feedback_for_correct_answer="vertical tabはASCII制御文字には存在しますがエスケープシーケンスには存在しません。ただし、horizontal tabは&#39;\t&#39;として存在します。"
+      feedback_for_incorrect_answer="vertical tabはASCII制御文字には存在しますがエスケープシーケンスには存在しません。">
       type="ma">
     <choices>
-      <choice answer="true">UTF-32BE</choice>
-      <choice feedback="">UTF-16LE</choice>
-      <choice feedback="">UTF-8</choice>
-      <choice feedback="">UTF-32LE</choice>
-      <choice feedback="">UTF-16BE</choice>
-      <choice feedback="UnicodeのCode Pointについての問題なので、そもそもUnicodeではないwindows-31jは違います。">windows-31j</choice>
+      <choice answer="true">vertical tab</choice>
+      <choice feedback="&#39;\b&#39;として存在します。">back space</choice>
+      <choice feedback="&#39;\f&#39;として存在します。">form feed</choice>
+      <choice feedback="&#39;\n&#39;として存在します。">new line</choice>
+      <choice feedback="&#39;\r&#39;として存在します。">carriage return</choice>
     </choices>
   </question>
   <!--Day2-7-->
