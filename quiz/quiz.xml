@@ -80,7 +80,7 @@
   <!--Day2-6-->
   <question
       statement="次のうち存在しないエスケープシーケンスを選べ。"
-      feedback_for_correct_answer="vertical tabはASCII制御文字には存在しますがエスケープシーケンスには存在しません。ただし、horizontal tabは&#39;\t&#39;として存在します。"
+      feedback_for_correct_answer="vertical tabはASCII制御文字には存在しますがエスケープシーケンスには存在しません。ちなみに、horizontal tabは&#39;\t&#39;として存在します。"
       feedback_for_incorrect_answer="vertical tabはASCII制御文字には存在しますがエスケープシーケンスには存在しません。">
       type="ma">
     <choices>
