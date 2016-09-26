@@ -148,8 +148,8 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 
 もし、メモリの容量が不足して領域に新たに容量を割り当てられない場合は、<a href="https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E8%A8%98%E6%86%B6" target="_blank">仮想記憶</a>で見かけ上の主記憶の容量を増やす方法があります。もしくは、多少お金を払っても構わない人は、<a href="https://aws.amazon.com/jp/" target="_blank">Amazon AWS</a>や<a href="https://www.heroku.com/" target="_blank">Heroku</a>、<a href="https://azure.microsoft.com/" target="_blank">Windows Azure</a>、<a href="https://cloud.google.com/compute/" target="_blank">Google Compute Engine</a>、<a href="http://www.ibm.com/cloud-computing/jp/ja/softlayer.html" target="_blank">IBM SoftLayer</a>、<a href="http://cloud.sakura.ad.jp/" target="_blank">さくらのクラウド</a>、<a href="https://www.conoha.jp/" target="_blank">Conoha VPS</a>、<a href="http://vps.sakura.ad.jp/" target="_blank">さくらのVPS</a>などIaaSの導入を検討してみてはいかがでしょうか。計算機自体を変える場合でも、単純に使用する計算機１台のスペックを向上させるスケールアップと分散化して処理するスケールアウトのどちらで対応するかの選択肢があります。<br>
 ***
-<h3>コラム：なぜ１文字が１つのchar型で表せなくなったのか、文字コードの歴史</h3>
-なぜ１文字が１つのchar型で表せなくなったのか、文字コードの歴史を簡単に振り返ってみましょう。
+<h3>コラム：世界統一文字コードの歴史　〜なぜ１文字が１つのCharで表せなくなったのか〜</h3>
+なぜ１文字が１つのChar型で表せなくなったのか、世界統一に向けた文字コードの歴史を簡単に振り返ってみましょう。
 <br>
 <img src="../image/string_course.004.jpeg" width="500px">
 <br>
@@ -191,7 +191,7 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 <a href="https://ja.wikipedia.org/wiki/GLAY_EXPO#GLAY_EXPO_.2799_SURVIVAL" target="_blank">GLAYの２０万人動員ライブ(GLAY EXPO '99 SURVIVAL)</a>。  
 ２０００年、<a href="https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%83%BB%E3%83%90%E3%83%96%E3%83%AB" target="_blank">ITバブル</a>崩壊、ITバブル崩壊や<a href="https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%96%E3%83%97%E3%83%A9%E3%82%A4%E3%83%A0%E3%83%AD%E3%83%BC%E3%83%B3" target="_blank">サブプライム住宅ローン問題</a>などが０８年に<a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%83%9E%E3%83%B3%E3%83%BB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF" target="_blank">リーマン・ショック</a>を引き起こす原因となり、<a href="https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%96%E3%83%97%E3%83%A9%E3%82%A4%E3%83%A0%E4%BD%8F%E5%AE%85%E3%83%AD%E3%83%BC%E3%83%B3%E5%8D%B1%E6%A9%9F" target="_blank">サブプライム住宅ローン危機</a>、世界的な金融緩和競争を呼び、１１年に<a href="https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB%E8%A1%97%E3%82%92%E5%8D%A0%E6%8B%A0%E3%81%9B%E3%82%88" target="_blank">「ウォール街を占拠せよ」</a>の原因の一つになりました（「ウォール街を占拠せよ」で取り上げられたアメリカの中流層の雇用悪化はアメリカから中国への工場移転など他の理由も考えられます）。  
 ２００１年、<a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E5%90%8C%E6%99%82%E5%A4%9A%E7%99%BA%E3%83%86%E3%83%AD%E4%BA%8B%E4%BB%B6" target="_blank">アメリカ同時多発テロ発生</a>。  
-***２００３年、Scala言語が公開されました。***  
+***２００３年、Javaのchar型をCharとして継承したScala言語が公開されました。***  
 ***
 <h3>コラム：Scalaのvalとvarの使い分け</h3>
 Javaの変数は参照を変えられますが、この表の例のようにScalaで`val`を使用すると参照を変えることができません。もしJavaと同じように参照を変えたい場合は、`val`から`var`に変更してください。
