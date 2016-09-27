@@ -191,7 +191,7 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 考えられることとしては、
 ラテン文字の少ない文字数で事足りる西欧人からすると8bitから16bitでメモリの使用領域が倍化するのに、32bitになれば4倍にもなり、そのほとんどが西欧人にとって必要のないものであるため基本的に容量が増えることに反対であったと考えられます。さらに漢字統合が起これば登録すべき字数が少なくなること、使用頻度により容量を変化させる折衷案が存在することなどから、折衷案に収束していったと考えられます。この結果、C/C+言語で日本語文字を8bit型２つで表していた問題は、Javaでは日本語文字の大部分は16bitのchar型１つで表せるが、一部はchar型を2つ組み合わせて表す方式になってしまいました。***  
 １９９５年　<a href="https://ja.wikipedia.org/wiki/%E9%98%AA%E7%A5%9E%E3%83%BB%E6%B7%A1%E8%B7%AF%E5%A4%A7%E9%9C%87%E7%81%BD" target="_blank">阪神・淡路大震災</a>。ニューエイジ運動の影響を受けたであろうオウム真理教が<a href="https://ja.wikipedia.org/wiki/%E5%9C%B0%E4%B8%8B%E9%89%84%E3%82%B5%E3%83%AA%E3%83%B3%E4%BA%8B%E4%BB%B6" target="_blank">地下鉄サリン事件</a>を起こしました。  
-***１９９６年、Unicode 2.0.0が発表され、容量を16bitから21bitに拡張、未登録漢字を追加領域に登録し、16bit２つで追加領域を表現するSurrogate Pairが登場します。***  
+***１９９６年、Unicode 2.0.0が発表され、容量を16bitから21bitに拡張、未登録漢字を追加領域に登録し、16bit２つで追加領域を表現するサロゲートペアが登場します。***  
 １９９９年、Unicode 3.0.0が発表され、ベトナムの文字欄が追加され、カンボジアの<a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A1%E3%83%BC%E3%83%AB%E6%96%87%E5%AD%97" target="_blank">クメール文字</a>を追加される。しかし、ポル・ポト政権により知識人が大量虐殺されたことに影響し、クメール文字に存在しない文字が登録されたり、存在する文字が登録されていなかったり、登録順序が不整合な登録でした。Ref. <a href="http://togetter.com/li/752547" target="_blank">クメール文字とUnicode - Togetterまとめ</a>, <a href="http://togetter.com/li/753104" target="_blank">「クメール文字とUnicode」補遺 - Togetterまとめ</a>  
 同年、北朝鮮が「金正日」と「金日成」を表すハングルの追加を申請しました。Ref. <a href="https://ja.wikipedia.org/wiki/KPS_9566" target="_blank">KPS 9566-2000</a>  
 <a href="https://ja.wikipedia.org/wiki/GLAY_EXPO#GLAY_EXPO_.2799_SURVIVAL" target="_blank">GLAYの２０万人動員ライブ(GLAY EXPO '99 SURVIVAL)</a>。  
