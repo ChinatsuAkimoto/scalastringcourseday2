@@ -25,6 +25,7 @@ Javaのchar型はUnicodeの発案に基づいて16bitに設計されましたが
 JavaとScalaの文字に関連するリテラルの対照表です。表が示すように基本的にはリテラルの表記方法はJavaとScalaに違いはありません。しかし、Javaには存在しないがScalaには存在する生文字リテラルがあります。  
 <br>
 Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い分け">コラム：Scalaのvalとvarの使い分け</a>、日本語の半角円記号とバックスラッシュ記号の混合問題については<a href="#コラム日本語の半角円記号とバックスラッシュ記号の混同問題">コラム：日本語の半角円記号とバックスラッシュ記号の混同問題</a>を参照ください。
+
 ```scala
   @Test
   def testLiteral(): Unit = {
@@ -59,6 +60,7 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
 <img src="../image/string_course.006.jpeg" width="500px">
 <br>
 文字リテラルや文字列リテラルで\記号が必要なエスケープシーケンスを生文字リテラルでは\記号なしで表記できます。ただし、Unicodeシーケンスの\記号は生文字リテラルでも必要です。
+
 ```scala
   @Test
   def testRawStringLiteral(): Unit = {
@@ -88,6 +90,7 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
 <img src="../image/string_course.007.jpeg" width="500px">
 <br>
 改行文字を生文字リテラルで扱うとプログラムのインデントが崩れてしまい可読性が低下する問題が発生します。<a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@stripMargin:String" target="_blank">stripMargin</a>メソッドを使用すると改行文字を含む生文字リテラルのインデントを揃えることができます。
+
 ```scala
   @Test
   def testStripMargin(): Unit = {
