@@ -7,6 +7,7 @@ Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Ba
 <br>
 表にあるように８進数のエスケープシーケンスは存在しますが、似た物として８進数のInt型のリテラルはScala 2.10からdeprecated (<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/Deprecated.html" target="_blank">Java 8のDeprecated</a>と<a href="http://www.scala-lang.org/api/current/index.html#scala.deprecated" target="_blank">Scalaのdeprecated</a>でdeprecatedの意味は同じですが、Java 8の方が比較的細かくdeprecatedの説明が書かれています)になりました。Ref. 
 <a href="https://github.com/scala/scala-dist/pull/20" target="_blank">Removed Octal literals</a>
+
 ```scala
   @Test
   def testEscapeSequence(): Unit = {
@@ -39,6 +40,7 @@ Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Ba
 <img src="../image/string_course.018.jpeg" width="500px">
 <br>
 Unicodeシーケンスは文字に関するリテラル内にBMP領域の16bitのコードポイントによって文字を記述する方法です。例では、漢字なのか記号なのか作成するアプリケーションの目的によって変わりそうな文字をUnicodeシーケンスで表現してみました。最後の𠮷野家の<a href="https://ja.wiktionary.org/wiki/%F0%A0%AE%B7" target="_blank">「𠮷」</a>はBMP領域にはなく追加領域の文字なのでサロゲートペア、つまり２つもUnicodeシーケンスで表現します。このような追加領域の文字は文字列リテラルや生文字リテラルでは表現できるが、文字リテラルでは表現できません。
+
 ```scala
   @Test
   def testUnicodeSequence(): Unit = {
@@ -105,6 +107,7 @@ Unicodeシーケンスの特殊な挙動については<a href="#コラムunicod
 <img src="../image/string_course.019.jpeg" width="500px">
 <br>
 OSに依存する改行文字、パスの区切り文字、クラスパスの区切り文字は次のように取得できます。ただし、Windowsはキャリッジリターン"\r"なしでも改行を行うことや、パスの区切り文字がUnix環境の"\\"と"/"の両方が混在しても許容されるため、それらについてはUnix側に合わせれば良いという考え方もあります。
+
 ```scala
   @Test
   def testOSDependentCharacter(): Unit = {
