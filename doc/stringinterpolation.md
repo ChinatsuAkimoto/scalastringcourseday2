@@ -8,8 +8,9 @@
 <h3>2.1　s補間子</h3>
 
 <img src="../image/string_course.009.jpeg" width="500px">
-<br>
-まずs補間子ですが、<a href="https://ja.wikipedia.org/wiki/Bash" target="_blank">Bash</a>や<a href="https://ja.wikipedia.org/wiki/Perl" target="_blank">Perl</a>、<a href="https://ja.wikipedia.org/wiki/PHP:_Hypertext_Preprocessor" target="_blank">PHP</a>の文字列のように変数を$記号を使用することでスライドのように直接値を埋め込むことができます。
+
+<p>
+まずs補間子ですが、<a href="https://ja.wikipedia.org/wiki/Bash" target="_blank">Bash</a>や<a href="https://ja.wikipedia.org/wiki/Perl" target="_blank">Perl</a>、<a href="https://ja.wikipedia.org/wiki/PHP:_Hypertext_Preprocessor" target="_blank">PHP</a>の文字列のように変数を$記号を使用することでスライドのように直接値を埋め込むことができます。</p>
 
 ```scala
   @Test
@@ -25,8 +26,9 @@
 <h3>2.2　f補間子</h3>
 
 <img src="../image/string_course.010.jpeg" width="500px">
-<br>
-次にf補間子ですが、s補間子で埋め込む値の埋め込み方をf補間子ではC言語のprintfのフォーマットのように指定することができます。スライドでは、 `${9}` で１０進整数9を埋め込むことを指定し、直後の `%03d` で１０進整数（decimalのd）に対して、３桁で埋め込み、足りない桁には0を使用することを指定しています。そのため、 `${9}` の「9」が結果では「009」に変化しています。
+
+<p>
+次にf補間子ですが、s補間子で埋め込む値の埋め込み方をf補間子ではC言語のprintfのフォーマットのように指定することができます。スライドでは、 `${9}` で１０進整数9を埋め込むことを指定し、直後の `%03d` で１０進整数（decimalのd）に対して、３桁で埋め込み、足りない桁には0を使用することを指定しています。そのため、 `${9}` の「9」が結果では「009」に変化しています。</p>
 
 ```scala
   @Test
@@ -41,8 +43,9 @@
 <h3>2.3　raw補間子</h3>
 
 <img src="../image/string_course.011.jpeg" width="500px">
-<br>
-raw補間子ですが、raw補間子は生文字リテラルと同じようにエスケープシーケンスをエスケープせずに表記通り表現したい際に使用します。raw補間子は生文字リテラルと同様にUnicodeシーケンスは\記号が必要です。では文字列リテラルにraw補間子を使用した場合と生文字リテラルとの間に違いはあるのでしょうか。
+
+<p>
+raw補間子ですが、raw補間子は生文字リテラルと同じようにエスケープシーケンスをエスケープせずに表記通り表現したい際に使用します。raw補間子は生文字リテラルと同様にUnicodeシーケンスは\記号が必要です。では文字列リテラルにraw補間子を使用した場合と生文字リテラルとの間に違いはあるのでしょうか。</p>
 
 ```scala
   @Test
@@ -69,8 +72,9 @@ raw補間子ですが、raw補間子は生文字リテラルと同じように�
 <h3>2.4　文字列リテラル＋raw補間子と生文字リテラルの違い</h3>
 
 <img src="../image/string_course.012.jpeg" width="500px">
-<br>
-改行とダブルクォーテーション記号の扱いにおいて、文字列リテラルにraw補間子を使用した場合と生文字リテラルとの間に違いがあります。raw補間子で解釈する前は文字列リテラルなので、文字列リテラルの内部では生文字リテラルのように改行することはできません。文字列リテラルの内部にはダブルクォーテーション記号を書くこともできません。
+
+<p>
+改行とダブルクォーテーション記号の扱いにおいて、文字列リテラルにraw補間子を使用した場合と生文字リテラルとの間に違いがあります。raw補間子で解釈する前は文字列リテラルなので、文字列リテラルの内部では生文字リテラルのように改行することはできません。文字列リテラルの内部にはダブルクォーテーション記号を書くこともできません。</p>
 
 ```scala
   @Test
@@ -89,20 +93,27 @@ raw補間子ですが、raw補間子は生文字リテラルと同じように�
 <h3>2.5　補間子の自作</h3>
 
 <img src="../image/string_course.013.jpeg" width="500px">
-<br>
-s補間子、f補間子、raw補間子のような補間子を自作することができます。スライドでは、作成したjson補間子の挙動を説明します。  
+
+<p>
+s補間子、f補間子、raw補間子のような補間子を自作することができます。スライドでは、作成したjson補間子の挙動を説明します。</p>  
+
 <img src="../image/string_course.014.jpeg" width="500px">
-<br>
+
+<p>
 まず、json補間子は暗黙的にStringContextクラスのインスタンスを作成します。
-<br>
+</p>
+
 <img src="../image/string_course.015.jpeg" width="500px">
-<br>
+
+<p>
 json補間子はStringContextの自作のラッパーであるJsonHelperクラスのインスタンスを暗黙的に作成します。
-<br>
+</p>
+
 <img src="../image/string_course.016.jpeg" width="500px">
-<br>
+
+<p>
 JsonHelperクラスのjsonメソッドが呼ばれます。
-実際に作成したjson補間子は下記サンプルコードに載せましたので、そちらを参照してください。
+実際に作成したjson補間子は下記サンプルコードに載せましたので、そちらを参照してください。</p>
 
 ```scala
   @Test
