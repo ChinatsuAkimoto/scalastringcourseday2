@@ -131,9 +131,20 @@ static変数はJava 7までは非ヒープ領域であるPermanent領域に保�
 <h4>（１）プログラム上で使用するメモリ容量を減らす</h4>
 <p>プログラム上で使用するメモリ容量を減らすためには、まずどの処理がどの領域のメモリをどのくらい使用しているのかを把握し<a href="https://ja.wikipedia.org/wiki/%E3%83%9C%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF" target="_blank">ボトルネック</a>を探します。そしてボトルネックを改善するためにアルゴリズムを変更して<a href="https://ja.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E8%A4%87%E9%9B%91%E6%80%A7%E7%90%86%E8%AB%96" target="_blank">空間計算量複雑性</a>を下げます。</p>
 <p>どの処理がどの領域のメモリをどのくらい使用しているのかを探るためには次のようなツールが便利かもしれません。</p>
-<p><a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/Runtime.html" target="_blank">Runtime</a>クラスや<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/management/MemoryUsage.html" target="_blank">MemoryUsage</a>クラスを使用して、メモリの使用状況をモニターする方法があります。</p>
-<p>JVMオプション (<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/java.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/java.html">Unix</a>）で-verbose:gc, -Xloggc:filenameや-XX:+PrintGCDetailsを与えることで、OutOfMemoryErrorの原因になるFull GCの発動回数をモニタし、JVMオプションで-XX:+PrintHeapAtGCでGC発動前後のヒープ領域の使用状況をモニタする方法があります。</p>
+<p><a href="https://docs.oracle.com/javase/jp/8/docs/technotes/guides/visualvm/intro.html">Java VisualVM</a>や<a href="https://docs.oracle.com/javase/jp/8/docs/technotes/guides/management/jconsole.html">JConsole</a>でグラフィカルに確認することができます。端末からそれぞれ次のコマンドで実行してみてください。
+
+```bash
+jvisualvm
+```
+
+```bash
+jconsole
+```
+
+<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/Runtime.html" target="_blank">Runtime</a>クラスや<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/management/MemoryUsage.html" target="_blank">MemoryUsage</a>クラスを使用して、メモリの使用状況をモニターする方法もあります。</p>
+<p>JVMオプション (<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/java.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/java.html">Unix</a>）で-verbose:gc, -Xloggc:filenameや-XX:+PrintGCDetailsを与えることで、OutOfMemoryErrorの原因になるFull GCの発動回数をモニタし、JVMオプションで-XX:+PrintHeapAtGCでGC発動前後のヒープ領域の使用状況をモニタする方法もあります。</p>
 <p>.classファイルをjavapコマンド(<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/javap.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/javap.html">Unix</a>)で逆アセンブリをしてどのようにメモリが使用されているか調べる方法があります。</p>
+
 <p><a href="https://ja.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E8%A4%87%E9%9B%91%E6%80%A7%E7%90%86%E8%AB%96#.E8.A8.88.E7.AE.97.E5.95.8F.E9.A1.8C.E3.81.A8.E8.A8.88.E7.AE.97.E9.87.8F.E3.83.BB.E8.A4.87.E9.9B.91.E6.80.A7" target="_blank">時間計算量複雑性と空間計算量複雑性</a>はトレードオフの関係になりがちです。空間計算量複雑性を下げるために時間計算量複雑性が上がることはしばしば起こります。両方の計算量複雑性をともに下げるには<a href="https://ja.wikipedia.org/wiki/%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95" target="_blank">動的計画法</a>のような漸化式的な複雑なアルゴリズムを適応したり、より細かい枝刈りをしたり、バイナリレベルでデータ操作しメモリの番地を意識するようなよりlower levelのアルゴリズムが必要になるかもしれません。それによりプログラムの可読性が下がりがちです。漸化式的なアルゴリズムは<a href="https://ja.wikipedia.org/wiki/%E5%86%8D%E5%B8%B0" target="_blank">再帰関数</a>で書かれるためにStackOverflowErrorの発生する危険性が上がります。</p>
 <p>オンメモリでのアルゴリズムによる改善が難しい場合、一部をHDDやSSDのようなストレージに載せる方法を考えます。その際、ストレージのFile IOが遅いことが問題になるかもしれません。その場合は、読み込むファイルの読み込む位置を先頭からではなく途中から読み込む<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/io/RandomAccessFile.html" target="_blank">RandomAccessFile</a>を使用することや何度も読み込むデータを<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/util/WeakHashMap.html" target="_blank">WeakHashMap</a>でキャッシュしたりといった対策が考えられます。</p>
 <h4>（２）物理的に割り当てる容量を変更する</h4>
