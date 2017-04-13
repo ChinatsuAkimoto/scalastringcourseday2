@@ -1,6 +1,8 @@
 # 3.　特殊な文字
+
 Scalaで特殊な扱いをする文字について、エスケープシーケンスとUnicodeシーケンスとOS依存文字を説明します。
 <h3>3.1　エスケープシーケンス</h3>
+
 <img src="../image/string_course.017.jpeg" width="500px">
 <br>
 Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Back space"、fは"form Feed"、nは"New line"、rは"carriage Return"、tは"horizontal Tab"（ASCIIコードなどにはvertical tabも存在します。<a href="https://ja.wikipedia.org/wiki/ASCII#ASCII.E5.88.B6.E5.BE.A1.E6.96.87.E5.AD.97" target="_blank">ASCII制御文字</a>）の略字です。タイプライターの時代から"back space"や"carriage return"、"new line (タイプライターではline feed)"、"horizontal tab (タイプライターではtab)"が存在します。"carriage return"はタイプライターからの名残で、コンピュータでは既に役目を終えていますが、Microsoft社がWindowsに残しました。  
@@ -35,8 +37,10 @@ Scala/Javaで使用するエスケープシーケンスの一覧です。bは"Ba
     assert(octalNumberOfTwoHundredFiftyFive == 255)
   }
 ```
+
 ***
 <h3>3.2　Unicodeシーケンス</h3>
+
 <img src="../image/string_course.018.jpeg" width="500px">
 <br>
 Unicodeシーケンスは文字に関するリテラル内にBMP領域の16bitのコードポイントによって文字を記述する方法です。例では、漢字なのか記号なのか作成するアプリケーションの目的によって変わりそうな文字をUnicodeシーケンスで表現してみました。最後の𠮷野家の<a href="https://ja.wiktionary.org/wiki/%F0%A0%AE%B7" target="_blank">「𠮷」</a>はBMP領域にはなく追加領域の文字なのでサロゲートペア、つまり２つもUnicodeシーケンスで表現します。このような追加領域の文字は文字列リテラルや生文字リテラルでは表現できるが、文字リテラルでは表現できません。
@@ -102,8 +106,10 @@ Unicodeシーケンスは文字に関するリテラル内にBMP領域の16bit�
 ```
 Unicodeシーケンスの特殊な挙動については<a href="#コラムunicodeシーケンスの特殊な挙動native2ascii">コラム：Unicodeシーケンスの特殊な挙動、native2ascii</a>、
 幽霊文字については<a href="#コラム幽霊文字">コラム：幽霊文字</a>、波ダッシュと全角チルダの問題については<a href="#コラム波ダッシュと全角チルダの問題">コラム：波ダッシュと全角チルダの問題</a>を参照ください。
+
 ***
 <h3>3.3　OS依存文字</h3>
+
 <img src="../image/string_course.019.jpeg" width="500px">
 <br>
 OSに依存する改行文字、パスの区切り文字、クラスパスの区切り文字は次のように取得できます。ただし、Windowsはキャリッジリターン"\r"なしでも改行を行うことや、パスの区切り文字がUnix環境の"\\"と"/"の両方が混在しても許容されるため、それらについてはUnix側に合わせれば良いという考え方もあります。
@@ -139,8 +145,10 @@ OSに依存する改行文字、パスの区切り文字、クラスパスの区
     assert(pathSeparator1 == pathSeparator2)
   }
 ```
+
 ***
 <h3>コラム：Unicodeシーケンスの特殊な挙動、native2ascii</h3>
+
 プログラムのコンパイルの初期の字句解析の段階で、ソースコード中の文字を一度全てASCIIコード（Unicodeの最初の128文字のみ、U+0000〜U+007F）に変換します。日本語文字のようなASCIIコードではない文字をUnicodeシーケンスの書式でASCIIコードに変換されます。そのため、Unicodeシーケンスは文字リテラルや文字列リテラルだけではなく、日本語文字で記述可能な変数名や関数名、クラス名などあらゆるところでUnicodeシーケンスも使用できます。パッケージ名にも使用できますが、ファイルパスの区切り文字の関係で、「\u」が使用できない場合があります。この場合は「\u」の代替として「@」や他の文字が使用できます。幾つかのエスケープシーケンス（「```\r```」、「```\n```」、「```\'```」、「```\"```」）は、文字・文字列リテラル内でUnicodeシーケンスで記述することができません。例えば、「```\n```」を表すUnicodeシーケンス「```\u000A```」を文字列リテラル内に記述すると、実質的に文字列リテラル内で改行している状態になります。
 
 <h4>native2ascii</h4>
@@ -153,8 +161,11 @@ Unicodeシーケンス to 通常の文字列|```native2ascii -reverse -encoding 
 
 ***
 <h3>コラム：<a href="https://ja.wikipedia.org/wiki/%E5%B9%BD%E9%9C%8A%E6%96%87%E5%AD%97" target="_blank">幽霊文字</a></h3>
+
 文字コードには含まれているが、一体どこで使われているのかわからない、この世には存在しない文字のことを幽霊文字と言います。代表的なものに<a href="https://ja.wiktionary.org/wiki/%E5%A6%9B" target="_blank">「妛」</a>や<a href="https://ja.wiktionary.org/wiki/%E5%BD%81" target="_blank">「彁」</a>があります。紙に書かれた大量の文字の電子化がいかに大変な作業であったかを考えれば、このようにいくつか<a href="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%A8%E3%83%A9%E3%83%BC" target="_blank">ヒューマンエラー</a>が起こるのは仕方ないことかもしれません。
+
 ***
 <h3>コラム：波ダッシュと全角チルダの問題</h3>
+
 波ダッシュと全角チルダの問題については、次のページを読んでください。  
 <a href="https://ja.wikipedia.org/wiki/Unicode#.E6.B3.A2.E3.83.80.E3.83.83.E3.82.B7.E3.83.A5.E3.83.BB.E5.85.A8.E8.A7.92.E3.83.81.E3.83.AB.E3.83.80.E5.95.8F.E9.A1.8C" target="_blank">波ダッシュ・全角チルダ問題</a>
