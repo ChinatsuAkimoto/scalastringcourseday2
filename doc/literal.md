@@ -1,16 +1,19 @@
 # 1.　リテラル
 
 <img src="../image/string_course.002.jpeg" width="500px">
-<br>
+
 リテラルとは、プログラム中に値を直接記述する表現、あるいはその値そのもののことです。Javaでは、プリミティブ型と参照型、値型と参照型という言い方もありますが、int, float, booleanのようなプリミティブ型をプログラム中に記述する際に、`int i = 0;`のように代入する値0をリテラルで書きます。主にプリミティブ型をリテラルで表記しますが、ダブルクォーテーションで囲われた文字列やnullのような特殊な参照型もリテラルが存在します。Scalaは全ての型が参照型でありプリミティブ型は存在しませんが、Javaに存在するリテラルはScalaでも同様に存在します。プリミティブ型はスタック領域に保持され、参照型、は参照はスタック領域に、インスタンスはヒープ領域に保持されます。Stringクラスの<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/String.html#intern--" target="_blank">intern</a>メソッドを使用した場合のインスタンスは、Java 6まではPermanent領域に保持され、Java 7からはヒープ領域に保持されるようになりました。なお、本書ではStringクラスのinternメソッドもそれに類するScalaの<a href="http://www.scala-lang.org/api/current/index.html#scala.Symbol" target="_blank">Symbol</a>クラスやSymbolリテラルについても取り上げません。（一般的に、Symbolやinternは文字列処理というよりはマップのキーの管理の文脈で登場する技術です。）  
-<br>
+
+
 非ヒープ領域（Permanent領域やMetaspace領域）によるOutOfMemoryErrorについては<a href="#コラム非ヒープ領域によるoutofmemoryerror">コラム：非ヒープ領域によるOutOfMemoryError</a>、OutOfMemoryErrorやStackOverflowErrorの対処法については
 <a href="#コラムoutofmemoryerrorやstackoverflowerrorの対処法">コラム：OutOfMemoryErrorやStackOverflowErrorの対処法</a>を参照ください。
 
 ***
 <h3>1.1　文字に関するリテラル</h3>
 
-<img src="../image/string_course.003.jpeg" width="500px"><br>
+<img src="../image/string_course.003.jpeg" width="500px">
+
+<p>
 Scalaで文字を管理するクラスはCharクラス、文字列を管理するクラスはStringクラスです。
 Javaのプリミティブ型charを、Scalaにはプリミティブ型が存在しないため、参照型のCharクラスが管理します。
 Stringクラスは、Charクラスの配列を扱うラッパークラスです。
@@ -18,17 +21,22 @@ Stringクラスは、Charクラスの配列を扱うラッパークラスです�
 ScalaのCharクラスのサイズはJavaのchar型と同様に16bitです。
 Javaのchar型はUnicodeの発案に基づいて16bitに設計されましたが、後にサロゲートペアが登場し、全ての１文字を１つのchar型で表せないことが判明しました。
 そのため、Javaのchar型を同じサイズで引き継いだScalaのCharクラスもまた全ての１文字を１つのCharクラスで表せるわけではありません。  
-<br>
+</p>
+<p>
 なぜ１文字が１つのchar型で表せなくなったのかについて文字コードの歴史を振り返るには<a href="#コラム世界統一文字コードの歴史なぜ１文字が１つのcharで表せなくなったのか">コラム：世界統一文字コードの歴史　〜なぜ１文字が１つのCharで表せなくなったのか〜</a>を参照ください。
+</p>
 
 ***
 <h3>1.2　文字に関するリテラルの例</h3>
 
 <img src="../image/string_course.005.jpeg" width="500px">
-<br>
+
+<p>
 JavaとScalaの文字に関連するリテラルの対照表です。表が示すように基本的にはリテラルの表記方法はJavaとScalaに違いはありません。しかし、Javaには存在しないがScalaには存在する生文字リテラルがあります。  
-<br>
+</p>
+<p>
 Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い分け">コラム：Scalaのvalとvarの使い分け</a>、日本語の半角円記号とバックスラッシュ記号の混合問題については<a href="#コラム日本語の半角円記号とバックスラッシュ記号の混同問題">コラム：日本語の半角円記号とバックスラッシュ記号の混同問題</a>を参照ください。
+</p>
 
 ```scala
   @Test
@@ -64,8 +72,10 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
 <h3>1.3　生文字リテラル</h3>
 
 <img src="../image/string_course.006.jpeg" width="500px">
-<br>
+
+<p>
 文字リテラルや文字列リテラルで\記号が必要なエスケープシーケンスを生文字リテラルでは\記号なしで表記できます。ただし、Unicodeシーケンスの\記号は生文字リテラルでも必要です。
+</p>
 
 ```scala
   @Test
@@ -90,14 +100,19 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
     assert(waveDashStringLiteral == waveDashRawStringLiteral)
   }
 ```
+
+<p>
 文字列の一致については<a href="#コラム文字列の一致">コラム：文字列の一致</a>、文字の一致については<a href="#コラム文字の一致">コラム：文字の一致</a>を参照ください。
+</p>
 
 ***
 <h3>1.4　生文字リテラルの改行のインデントを揃える方法</h3>
 
 <img src="../image/string_course.007.jpeg" width="500px">
-<br>
+
+<p>
 改行文字を生文字リテラルで扱うとプログラムのインデントが崩れてしまい可読性が低下する問題が発生します。<a href="http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.StringLike@stripMargin:String" target="_blank">stripMargin</a>メソッドを使用すると改行文字を含む生文字リテラルのインデントを揃えることができます。
+</p>
 
 ```scala
   @Test
@@ -122,7 +137,9 @@ Scalaのvalとvarの使い分けは<a href="#コラムscalaのvalとvarの使い
 ***
 <h3>コラム：非ヒープ領域によるOutOfMemoryError</h3>
 
+<p>
 static変数はJava 7までは非ヒープ領域であるPermanent領域に保持されますが、Java 8からPermanent領域が廃止され、static変数はヒープ領域に保持されるようになりました。Permanent領域の他の機能は非ヒープ領域であるMetaspace領域が引き継ぎました。OutOfMemoryErrorをはいてシステムが停止した場合、ヒープ領域とPermanent領域のどちらがいっぱいになったのか調べるなんてことを経験したことがあるかもしれませんが、容量の上限値の初期値が小さいPermanent領域が廃止され、容量の上限値の初期値が64bitプロセッサが取り扱えるメモリの上限値に設定されているMetaspace領域に移行したことで非ヒープ領域からのOutOfMemoryErrorの可能性をあまり意識しなくて済むようになりました。
+</p>
 
 ***
 <h3>コラム：OutOfMemoryErrorやStackOverflowErrorの対処法</h3>
@@ -143,7 +160,6 @@ jconsole
 
 <a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/Runtime.html" target="_blank">Runtime</a>クラスや<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/lang/management/MemoryUsage.html" target="_blank">MemoryUsage</a>クラスを使用して、メモリの使用状況をモニターする方法もあります。</p>
 <p>JVMオプション (<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/java.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/java.html">Unix</a>）で-verbose:gc, -Xloggc:filenameや-XX:+PrintGCDetailsを与えることで、OutOfMemoryErrorの原因になるFull GCの発動回数をモニタし、JVMオプションで-XX:+PrintHeapAtGCでGC発動前後のヒープ領域の使用状況をモニタする方法もあります。</p>
-<p>.classファイルをjavapコマンド(<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/javap.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/javap.html">Unix</a>)で逆アセンブリをしてどのようにメモリが使用されているか調べる方法があります。</p>
 
 <p><a href="https://ja.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E8%A4%87%E9%9B%91%E6%80%A7%E7%90%86%E8%AB%96#.E8.A8.88.E7.AE.97.E5.95.8F.E9.A1.8C.E3.81.A8.E8.A8.88.E7.AE.97.E9.87.8F.E3.83.BB.E8.A4.87.E9.9B.91.E6.80.A7" target="_blank">時間計算量複雑性と空間計算量複雑性</a>はトレードオフの関係になりがちです。空間計算量複雑性を下げるために時間計算量複雑性が上がることはしばしば起こります。両方の計算量複雑性をともに下げるには<a href="https://ja.wikipedia.org/wiki/%E5%8B%95%E7%9A%84%E8%A8%88%E7%94%BB%E6%B3%95" target="_blank">動的計画法</a>のような漸化式的な複雑なアルゴリズムを適応したり、より細かい枝刈りをしたり、バイナリレベルでデータ操作しメモリの番地を意識するようなよりlower levelのアルゴリズムが必要になるかもしれません。それによりプログラムの可読性が下がりがちです。漸化式的なアルゴリズムは<a href="https://ja.wikipedia.org/wiki/%E5%86%8D%E5%B8%B0" target="_blank">再帰関数</a>で書かれるためにStackOverflowErrorの発生する危険性が上がります。</p>
 <p>オンメモリでのアルゴリズムによる改善が難しい場合、一部をHDDやSSDのようなストレージに載せる方法を考えます。その際、ストレージのFile IOが遅いことが問題になるかもしれません。その場合は、読み込むファイルの読み込む位置を先頭からではなく途中から読み込む<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/io/RandomAccessFile.html" target="_blank">RandomAccessFile</a>を使用することや何度も読み込むデータを<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/util/WeakHashMap.html" target="_blank">WeakHashMap</a>でキャッシュしたりといった対策が考えられます。</p>
@@ -175,13 +191,43 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 もし、メモリの容量が不足して領域に新たに容量を割り当てられない場合は、<a href="https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E8%A8%98%E6%86%B6" target="_blank">仮想記憶</a>で見かけ上の主記憶の容量を増やす方法があります。もしくは、多少お金を払っても構わない人は、<a href="https://aws.amazon.com/jp/" target="_blank">Amazon AWS</a>や<a href="https://www.heroku.com/" target="_blank">Heroku</a>、<a href="https://azure.microsoft.com/" target="_blank">Windows Azure</a>、<a href="https://cloud.google.com/compute/" target="_blank">Google Compute Engine</a>、<a href="http://www.ibm.com/cloud-computing/jp/ja/softlayer.html" target="_blank">IBM SoftLayer</a>、<a href="http://cloud.sakura.ad.jp/" target="_blank">さくらのクラウド</a>、<a href="https://www.conoha.jp/" target="_blank">Conoha VPS</a>、<a href="http://vps.sakura.ad.jp/" target="_blank">さくらのVPS</a>などIaaSの導入を検討してみてはいかがでしょうか。計算機自体を変える場合でも、単純に使用する計算機１台のスペックを向上させるスケールアップと分散化して処理するスケールアウトのどちらで対応するかの選択肢があります。<br>
 
 ***
+<h3>コラム：逆アセンブリ・逆コンパイル</h3>
+
+<h4>逆アセンブリ</h4>
+
+<p>.class拡張子を持つクラスファイルをjavapコマンド(<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/javap.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/javap.html">Unix</a>)で逆アセンブリをしてJVMコードを調べる方法があります。</p>
+
+```bash
+javap -c クラスファイル.class
+```
+
+<h4>逆コンパイル</h4>
+
+<p>.class拡張子を持つクラスファイルを逆コンパイラで逆コンパイルしてJavaコードを調べる方法があります。Scalaのプログラムをコンパイルして生成されたクラスファイルであってもJavaコードに逆コンパイルできます。</p>
+
+逆コンパイラのJadでは次のように実行します・
+
+```bash
+jad -r クラスファイル.class
+```
+
+関連文書：
+<ul>
+<li><a href="http://kaworu.jpn.org/java/jad" target="_blank">jad - Java入門</a></li>
+<li><a href="https://varaneckas.com/jad/" target="_blank">JAD Java Decompiler Download Mirror</a></li>
+<li><a href="http://www.javadecompilers.com/" target="_blank">Java decompiler online</a></li>
+</ul>
+
+***
 <h3>コラム：世界統一文字コードの歴史　〜なぜ１文字が１つのCharで表せなくなったのか〜</h3>
 
+<p>
 なぜ１文字が１つのChar型で表せなくなったのか、世界統一に向けた文字コードの歴史を簡単に振り返ってみましょう。
-<br>
-<img src="../image/string_course.004.jpeg" width="500px">
-<br>
-なぜJavaで１文字が１つのchar型で表せなくなったのか、文字コードの歴史を振り返るにあたって、歴史を想像しやすいようにランドマークとして一般的な近現代史を足しました。***太字の箇所***だけ読んでいただければ十分です。
+</p>
+
+<img src="../image/string_course.004.jpeg" width="500px">  
+
+なぜJavaで１文字が１つのchar型で表せなくなったのか、文字コードの歴史を振り返るにあたって、歴史を想像しやすいようにランドマークとして一般的な近現代史を足しました。 ***太字の箇所*** だけ読んでいただければ十分です。
 
 最初に文字をコード化・電子化したのは１８００年台半ばの<a href="https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%AB%E3%82%B9%E7%AC%A6%E5%8F%B7" target="_blank">モールス信号</a>です。  
 今日文字入力装置として使われるキーボードの原型は、１９００年代初めの<a href="https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC" target="_blank">タイプライター</a>標準化で生まれました。  
@@ -240,9 +286,13 @@ Unicodeが誕生して今日のように普及する前は、日本語テキス�
 ***
 <h3>コラム：文字列の一致</h3>
 
+<p>
 Javaでは、==演算子（!=演算子）はプリミティブ型の一致（不一致）は見られてもString型や<a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AA%E3%83%9F%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%83%83%E3%83%91%E3%83%BC%E3%82%AF%E3%83%A9%E3%82%B9" target="_blank">プリミティブラッパークラス</a>のような参照型に対してはスタック領域上にある参照の一致を見てしまい内容の一致を見ることはできないため、仮に内容が一致していてもfalseを返す可能性があります。そのため、参照型ではequalsメソッドにより内容の一致を見なければなりません。これはあまり直感的ではなくしばしばバグを生む原因になります。一方で、Scalaではプリミティブ型は存在せず、全てが参照型であり、全ての参照型に対して==演算子（!=演算子）とequalsメソッド（!演算子を伴うequalsメソッド）で内容の一致を見ることができます。Javaのように参照の一致を見たい場合は、eqメソッド（neメソッド）が使用できます。
+</p>
 
 ***
 <h3>コラム：文字の一致</h3>
 
+<p>
 Javaでは、String型はequalsメソッドを用いなければ内容の一致を見ることができませんが、char型はプリミティブ型なので==演算子で一致を見ることができます。さらに、char型は整数型（16bit）なので、他の整数型（byte型は8bit、short型は16bit、int型は32bit、long型は64bit）や浮動小数（float型は32bit、double型は64bit）と==演算子（!=演算子）で値の一致や比較を見ることができます。ScalaでもChar型は整数型なので同様に数値としての一致・比較が可能です。
+</p>
