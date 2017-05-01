@@ -197,7 +197,7 @@ JVMが始動時に確保するメモリの各領域の容量を変更するJVM�
 機械語コードをコンパイル前のコードに変換することを逆コンパイルといい、特にアセンブリに変換することを逆アセンブリといいます。
 Scalaコードをコンパイルして生成されるクラスファイルをJVMコードやJavaコードといった人間が読めるコードに変換することができます。
 
-<h4>逆アセンブリ</h4>
+<h4>（１）逆アセンブリ</h4>
 
 <p>.class拡張子を持つクラスファイルをjavapコマンド(<a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/windows/javap.html" target="_blank">Windows</a>, <a href="http://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/javap.html">Unix</a>)で逆アセンブリをしてJVMコードを調べる方法があります。</p>
 
@@ -207,7 +207,7 @@ javap -c クラスファイル.class
 
 例えば次のような場合に役に立ちます。switch文はJVMコードではtableswitchとlookupswitchのいずれかに変換されます。tableswitchは高速にswitchするためのテーブルが作られるため高速な処理ですが、lookupswitchはテーブルが作成できない場合のswitchなのでtableswitchより遅い処理です。JVMコードでどちらが使用されているかは逆アセンブリすることで確認できます。逆アセンブリした結果、lookupswitchが使用されていてtableswitchを使用したい場合は、Scalaコード上でcase文が連番になるようにダミーのcase文を挿入するか、switch文を分割するといった対策が考えられます。
 
-<h4>逆コンパイル</h4>
+<h4>（２）逆コンパイル</h4>
 
 <p>.class拡張子を持つクラスファイルを逆コンパイラで逆コンパイルしてJavaコードを調べる方法があります。Scalaコードをコンパイルして生成されたクラスファイルであってもJavaコードに逆コンパイルできます。</p>
 
